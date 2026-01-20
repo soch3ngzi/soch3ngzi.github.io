@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to My Space</title>
+    <title> 劲爆蛏子部落 </title>
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background-color: #1a1a1a; /* 深色背景 */
-            color: #00ff00;           /* 经典绿字 */
-            font-family: "Courier New", Courier, monospace;
+            background-color: #3b3333; /* 深色背景 */
+            color: #ff9900;           /* 橙色字体 */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -16,32 +16,36 @@
             margin: 0;
         }
         .container {
-            border: 1px solid #00ff00;
-            padding: 40px;
-            box-shadow: 5px 5px 0px #00ff00;
+            border: 1px solid #ff9900;
+            padding: 20px 40px 40px 40px; /* 上方20px，右方40px，下方40px，左方40px */
+            box-shadow: 5px 5px 0px #ff9900;
         }
         a {
-            color: #00ff00;
+            color: #ff9900;
             text-decoration: none;
         }
         a:hover {
-            background-color: #00ff00;
+            background-color: #ff9900;
             color: #1a1a1a;
         }
         ul { list-style: none; padding: 0; }
         li { margin: 10px 0; }
+        h1 {
+                margin-bottom: 0; /* 减少标题与下方内容的间距 */
+                padding: 10px 20px; /* 增加标题的内边距，让它看起来更宽敞 */
+            }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>> HELLO_WORLD...</h1>
-        <p>欢迎来到我的个人秘密基地。</p>
+        <h1>>> 劲爆蛏子部落。 </h1>
+        <p style="margin-top: 0;"></p>
         <hr>
         <nav>
             <ul>
-                <li><a href="blog.html">[ 1. 随笔记录 ]</a></li>
-                <li><a href="projects.html">[ 2. 我的作品 ]</a></li>
-                <li><a href="about.html">[ 3. 关于主人 ]</a></li>
+                <li><a href="/blog/">[ 1. 宇宙蛏子号航行记录 ]</a></li>
+                <li><a href="comm.html">[ 2. 蛏子乐园 ]</a></li>
+                <li><a href="/about/">[ 3. 关于宇宙蛏子号 ]</a></li>
             </ul>
         </nav>
     </div>

@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap');
+
+body {
+    font-family: 'Noto Sans SC', 'Source Code Pro', monospace;
+    background-color: #3b3333; /* 统一背景色为棕色 */
+    color: #e0e0e0; /* 浅色文本 */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto; /* 居中显示，上下留白 */
+    padding: 20px 40px 40px; /* 调整内边距 */
+    border: 1px solid #f90; /* 橙色边框 */
+    box-shadow: 5px 5px 0 #f90; /* 橙色阴影 */
+    background-color: #4a4238; /* 调整容器背景色为暖棕灰色 */
+}
+
+h1 {
+    color: #f90; /* 橙色标题 */
+    text-align: center;
+    font-size: 2.5em; /* 调整字体大小 */
+    padding: 10px 20px; /* 调整内边距 */
+    margin-top: 0; /* 移除默认的h1顶部外边距 */
+}
+
+h2, h3, h4, h5, h6 {
+    color: #f90; /* 设置所有子标题为橙色 */
+}
+
+hr {
+    border: none;
+    border-top: 1px dashed #f90; /* 橙色虚线 */
+    margin: 20px 0; /* 上下外边距 */
+}
+
+ul {
+    list-style: none; /* 移除列表点 */
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #f90; /* 橙色链接 */
+    text-decoration: none; /* 移除下划线 */
+    transition: color 0.3s ease; /* 平滑过渡效果 */
+}
+
+a:hover {
+    color: #fff; /* 鼠标悬停时变为白色 */
+}
+
+p {
+    color: #fc6; /* 将正文文本颜色设置为日志预览的颜色 */
+}
+
+/* 针对日志详情页和感想文详情页的容器样式 */
+.post-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px 40px;
+    border: 1px solid #f90;
+    box-shadow: 5px 5px 0 #f90;
+    background-color: #2a2a2a; /* 调整容器背景色为更深的颜色 */
+}
+
+.post-container h1 {
+    text-align: left; /* 日志标题左对齐 */
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.post-content img {
+    max-width: 100%; /* 确保图片不会溢出容器 */
+    height: auto;
+    display: block; /* 移除图片底部额外空间 */
+    margin: 15px 0;
+    border: 1px solid #f90;
+    box-shadow: 3px 3px 0 #f90;
+}
+
+.back-to-blog {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* About page specific styles */
+body.about-page {
+    background-color: #3b3333; /* 深色背景 */
+    color: #f90;           /* 橙色字体 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.about-page .container {
+    border: 1px solid #f90;
+    padding: 20px 40px 40px; /* 上方20px，右方40px，下方40px，左方40px */
+    box-shadow: 5px 5px 0 #f90;
+}
+
+.about-page a {
+    color: #f90;
+    text-decoration: none;
+}
+
+.comm-post-preview a {
+    color: #f90;
+    text-decoration: none;
+}
+
+
+
+.navigation-links a {
+    padding: 5px 10px;
+    border: 1px solid #f90;
+    transition: background-color 0.3s ease;
+}
+
+.about-page a:hover {
+    background-color: #f90;
+    color: #1a1a1a;
+}
+
+.about-page ul {
+    list-style: none;
+    padding: 0;
+}
+.about-page li { margin: 10px 0; }
+
+.about-page h1 {
+    padding: 10px 20px; /* 增加标题的内边距，让它看起来更宽敞 */
+}
+
+.about-page #about-columns {
+    display: flex;
+    gap: 20px; /* 两列之间的间距 */
+    align-items: flex-start; /* 顶部对齐 */
+    margin-top: 20px; /* 与上方标题的间距 */
+}
+
+.about-page #left-column {
+    flex: 0 0 30%; /* 左列固定宽度30% */
+    max-width: 30%;
+    padding: 20px;
+    border: 1px solid #f90;
+    box-shadow: 3px 3px 0 #f90;
+    background-color: #2a2a2a; /* 与container背景色一致 */
+    text-align: center; /* 左列内容居中 */
+}
+
+.about-page #right-column {
+    flex: 1; /* 右列占据剩余空间 */
+    padding: 20px;
+    border: 1px solid #f90;
+    box-shadow: 3px 3px 0 #f90;
+    background-color: #2a2a2a; /* 与container背景色一致 */
+}
+
+#right-column-comm h1 {
+    font-size: 2em; /* 调整“蛏子乐园”标题字体大小 */
+}
+
+.about-page #left-column h1 {
+    padding: 0; /* 移除左列标题的内边距，避免双重padding */
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em; /* 调整标题字体大小 */
+}
+
+.about-page #about-content {
+    margin-top: 10px; /* 头像和介绍与标题的间距 */
+}
+
+.about-page #introduction {
+    margin-top: 10px; /* 短介绍与头像的间距 */
+}
+
+.about-page #long-introduction {
+    line-height: 1.6; /* 增加行高，提高可读性 */
+}
+
+/* 针对日志列表容器的样式 */
+.log-container {
+    padding: 20px;
+    background-color: #2a2a2a; /* 设置日志容器背景色以区分body */
+    border: 1px solid #f90;
+    box-shadow: 5px 5px 0 #f90;
+}
+
+#log-list-title {
+    font-size: 2em; /* 调整日志列表标题字体大小以避免换行 */
+}
+
+
+/* Blog page specific styles for two-column layout */
+#blog-columns {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+#left-column-blog {
+    width: 280px; /* Fixed width for the left column (calendar) */
+    padding: 20px;
+    border: 1px solid #f90;
+    box-shadow: 3px 3px 0 #f90;
+    background-color: #2a2a2a; /* Darker background for the column itself */
+}
+
+#right-column-blog {
+    flex: 1; /* Takes up remaining space */
+    padding: 20px;
+    border: 1px solid #f90;
+    box-shadow: 3px 3px 0 #f90;
+    background-color: #2a2a2a; /* Darker background for the column itself */
+}
+
+/* Calendar specific styles */
+.calendar {
+    border: 1px solid #f90;
+    background-color: #2a2a2a; /* Setting calendar background color */
+    padding: 15px;
+    width: 240px; /* Width for calendar content */
+    box-shadow: 3px 3px 0 #f90;
+    color: #f90; /* Ensuring calendar text color is orange */
+}
+
+.calendar-header {
+    display: flex; /* 使用Flexbox布局 */
+    justify-content: space-around; /* 均匀分布子元素 */
+    align-items: center; /* 垂直居中对齐 */
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #f90; /* Ensuring calendar header text color is orange */
+}
+
+.calendar-header select {
+    background-color: #2a2a2a;
+    color: #f90;
+    border: 1px solid #f90;
+    padding: 5px;
+    margin: 0 5px;
+    border-radius: 3px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.calendar-header select:focus {
+    outline: none;
+    box-shadow: 0 0 5px #f90;
+}
+
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns, equal width */
+    gap: 5px;
+    text-align: center;
+}
+
+.calendar-date {
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid transparent; /* Default transparent border */
+    color: #f90; /* Ensuring calendar date text color is orange */
+}
+
+.calendar-date:hover {
+    border: 1px solid #f90; /* Show border on hover */
+}
+
+.calendar-date.active {
+    background-color: #f90;
+    color: #1a1a1a;
+}
+
+.weekday-header {
+    font-weight: bold;
+    color: #f90;
+    padding: 5px;
+}
+
+#comm-columns {
+    display: flex;
+    gap: 20px; /* 两列之间的间距 */
+    align-items: flex-start; /* 顶部对齐 */
+    margin-top: 20px; /* 与上方标题的间距 */
+}
+
+#left-column-comm {
+    width: 200px; /* 左列固定宽度 */
+    padding: 20px;
+    border: 1px solid #f90;
+    box-shadow: 3px 3px 0 #f90;
+    background-color: #2a2a2a; /* 与container背景色一致 */
+}
+
+#right-column-comm {
+    flex: 1; /* 右列占据剩余空间 */
+    padding: 20px;
+    border: 1px solid #f90;
+    box-shadow: 3px 3px 0 #f90;
+    background-color: #2a2a2a; /* 与container背景色一致 */
+}
+
+.comm-post-preview h2 {
+    margin-top: 0;
+    color: #f90;
+}
+
+#left-column-comm h2 {
+    margin-top: 0;
+    color: #f90;
+}
+
+
+
+
+
+#tag-list {
+    list-style: none;
+    padding: 0;
+}
+
+#tag-list li {
+    margin-bottom: 5px;
+}
+
+
+
+.comm-post-preview a:hover {
+    text-decoration: underline;
+}
+
+
+
+.navigation-links a:hover {
+    background-color: #f90;
+    color: #1a1a1a;
+}
+
+#tag-list a {
+    display: block;
+    padding: 5px;
+    border: 1px solid #f90;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+#tag-list a:hover {
+    background-color: #f90;
+    color: #1a1a1a;
+}
+
+.comm-post-preview {
+    border: 1px solid #f90;
+    box-shadow: 3px 3px 0 #f90;
+    background-color: #2a2a2a;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+
+
+.comm-post-preview p {
+    margin-bottom: 10px;
+}
+
+.comm-post-preview div {
+    color: #fc6; /* 感想文预览内容的颜色 */
+}
+
+.post-meta { /* 日志详情页的发布日期颜色 */
+    color: #a67c52;
+}
+
+.comm-post-preview .post-meta {
+    font-size: 0.9em;
+    color: #a67c52;
+}
+
+
+
+
+
+
+
+
+
+.log-entry {
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #f90; /* 分隔线 */
+}
+
+.log-entry:last-child {
+    border-bottom: none; /* 最后一个条目没有下边框 */
+}
+
+.log-preview {
+    color: #fc6; /* 预览文字颜色稍浅 */
+    margin: 5px 0;
+}
+
+h3 {
+    color: #f90; /* 确保日志条目标题是橙色 */
+}
+
+.back-to-home {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.navigation-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px dashed #f90;
+}
+
+
+
+

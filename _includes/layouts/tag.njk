@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ tag.tag }} 标签下的文章</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="tag-list-title">标签: {{ tag.tag }}</h1>
+        <div id="blog-columns">
+            <div id="right-column-blog">
+                <div class="log-container">
+                    {% for post in collections.commPosts %}
+                        {% if post.data.tags and tag.tag in post.data.tags %}
+                            <div class="log-entry">
+                                <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+                                <p class="log-preview">{{ post.data.preview }}</p>
+                                <p class="post-meta">发布日期: {{ post.data.date | date('yyyy-MM-dd') }}</p>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="back-to-home">
+            <a href="/">[ 返回主页 ]</a>
+        </div>
+    </div>
+</body>
+</html>

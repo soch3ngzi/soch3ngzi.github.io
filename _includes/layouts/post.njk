@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="post-container">
+
+        <h1>{{ title }}</h1>
+        <p id="post-meta" class="post-meta">发布日期: {{ date | date('yyyy-MM-dd') }}</p>
+        <div id="post-content">
+            {{ content | safe }}
+        </div>
+        <div class="navigation-links">
+            {% set prevPost = collections.posts | getPreviousCollectionItem(page.url) %}
+            {% if prevPost %}
+                <a href="{{ prevPost.url }}" id="prev-post-link">&lt; 上一篇</a>
+            {% else %}
+                <a href="#" id="prev-post-link" style="visibility: hidden;">&lt; 上一篇</a>
+            {% endif %}
+            {% set nextPost = collections.posts | getNextCollectionItem(page.url) %}
+            {% if nextPost %}
+                <a href="{{ nextPost.url }}" id="next-post-link">下一篇 &gt;</a>
+            {% else %}
+                <a href="#" id="next-post-link" style="visibility: hidden;">下一篇 &gt;</a>
+            {% endif %}
+        </div>
+        <div class="back-to-blog">
+            <a href="/blog/">[ 返回 航行记录  ]</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+---
+permalink: /comm/{{ title | slug }}/
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - 感想文</title>
+    <link rel="stylesheet" href="/style.css"> {# 注意这里的路径，Eleventy会处理 #}
+</head>
+<body>
+    <div class="post-container">
+        <article>
+
+            <p class="post-meta">发布日期: {{ date | date('yyyy-MM-dd') }} | 标签:
+                {% for tag in tags %}
+                    <a href="/tags/{{ tag | slug }}/">{{ tag }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            {{ content | safe }}
+        </article>
+        <div class="back-to-blog">
+            <a href="/comm.html">[ 返回 蛏子乐园 ]</a>
+        </div>
+    </div>
+</body>
+</html>
