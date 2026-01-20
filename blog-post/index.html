@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title id="post-title">日志详情</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #post-date {
+            text-align: right; /* 将日期文本右对齐 */
+            margin-top: 10px; /* 在标题下方留出一些空间 */
+            color: #ff9900; /* 设置日期颜色为主色调 */
+            font-size: 0.9em; /* 可以稍微调小字体 */
+        }
+
+        #post-header {
+            display: none; /* 隐藏重复的页面标题 */
+        }
+    </style>
+    <!-- 引入 Marked.js 库用于解析 Markdown -->
+    <!-- 在实际项目中，你可能需要从 CDN 或本地引入这个库 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="post-container">
+        <h1 id="post-header"></h1>
+        <p id="post-date"></p>
+        <hr>
+        <div id="post-content">
+            <!-- Markdown 内容将在这里渲染 -->
+            <p>正在加载日志内容，如果长时间未显示，请检查文件路径或网络连接。</p>
+        </div>
+        <div class="back-to-blog">
+            <a href="blog.html">[ 返回日志列表 ]</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postFileName = urlParams.get('post'); // 获取 URL 参数中的 Markdown 文件名
+
+            if (postFileName) {
+                const postPath = '_posts/' + postFileName; // 构造 Markdown 文件路径
+                fetch(postPath)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('无法加载日志文件: ' + response.statusText);
+                        }
+                        return response.text();
+                    })
+                    .then(markdown => {
+                        let postContentMarkdown = markdown; // 初始化为完整的 Markdown 内容
+                        let postTitle = '日志详情';
+                        let postDate = '';
+ 
+                        // 尝试从 Markdown 中提取 front matter 和实际内容
+                        const frontMatterMatch = markdown.match(/^---\s*([\s\S]*?)\s*---\s*([\s\S]*)/);
+ 
+                        if (frontMatterMatch) {
+                            const frontMatter = frontMatterMatch[1]; // front matter 部分
+                            postContentMarkdown = frontMatterMatch[2].trim(); // front matter 之后的内容
+ 
+                            // 提取标题
+                            const titleLine = frontMatter.split('\n').find(line => line.startsWith('title:'));
+                            if (titleLine) {
+                                postTitle = titleLine.substring('title:'.length).trim();
+                            }
+ 
+                            // 提取日期
+                            const dateLine = frontMatter.split('\n').find(line => line.startsWith('date:'));
+                            if (dateLine) {
+                                const rawDate = dateLine.substring('date:'.length).trim();
+                                try {
+                                    const dateObj = new Date(rawDate);
+                                    // 格式化日期为 YYYY年MM月DD日
+                                    postDate = `${dateObj.getFullYear()}年${(dateObj.getMonth() + 1).toString().padStart(2, '0')}月${dateObj.getDate().toString().padStart(2, '0')}日`;
+                                } catch (e) {
+                                    console.warn('Front matter 中的日期格式无效:', rawDate);
+                                    postDate = rawDate; // 解析失败时回退到原始日期字符串
+                                }
+                            }
+                        } else {
+                            // 如果没有 front matter，则整个 Markdown 都是内容
+                            postContentMarkdown = markdown;
+                        }
+ 
+                        // 设置页面标题和主标题
+                        document.getElementById('post-title').textContent = postTitle;
+                        document.getElementById('post-header').textContent = postTitle;
+ 
+                        // 设置日期
+                        if (postDate) {
+                            document.getElementById('post-date').textContent = postDate;
+                        } else {
+                            document.getElementById('post-date').style.display = 'none'; // 如果没有日期，则隐藏日期元素
+                        }
+ 
+                        // 使用 Marked.js 解析不包含 front matter 的 Markdown 内容
+                        const htmlContent = marked.parse(postContentMarkdown);
+                        document.getElementById('post-content').innerHTML = htmlContent;
+                    })
+                    .catch(error => {
+                        console.error('加载日志失败:', error);
+                        document.getElementById('post-content').innerHTML = '<p style="color: red;">加载日志内容失败，请检查文件是否存在或路径是否正确。</p>';
+                        document.getElementById('post-title').textContent = '加载失败';
+                        document.getElementById('post-header').textContent = '>> 加载失败';
+                    });
+            } else {
+                document.getElementById('post-content').innerHTML = '<p>未指定要加载的日志文件。</p>';
+                document.getElementById('post-title').textContent = '错误';
+                document.getElementById('post-header').textContent = '>> 错误';
+            }
+        });
+    </script>
+</body>
+</html>
