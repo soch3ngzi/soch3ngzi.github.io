@@ -1,6 +1,9 @@
 const { DateTime } = require("luxon");
 
 module.exports = function(eleventyConfig) {
+  // 排除模板目录，避免非标准YAML语法导致构建错误
+  eleventyConfig.ignores.add('_templates/');
+
     // 设置输入目录 (你的网站内容所在)
     eleventyConfig.addPassthroughCopy("style.css");
     eleventyConfig.addPassthroughCopy("assets"); // 如果有图片等资源
