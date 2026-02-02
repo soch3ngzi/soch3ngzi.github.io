@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>宇宙蛏子号航行记录</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+
+        <div id="blog-columns">
+            <div id="left-column-blog">
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <select id="year-select"></select>
+                        <select id="month-select"></select>
+                    </div>
+                    <div class="calendar-dates" id="calendar-dates">
+                        <!-- Calendar dates will be generated here -->
+                    </div>
+                </div>
+            </div>
+            <div id="right-column-blog">
+                <div class="log-container">
+                    <h1 id="log-list-title">宇宙蛏子号航行记录</h1>
+                    
+                    <div class="log-entry">
+                        <h3><a href="/posts/2026-01-31-shuyu-2026-de-shizhong-juran-yijing-zouwan-yige-le/">属于2026的时钟居然已经走完一格了！？</a></h3>
+                        <p class="log-preview"></p>
+                        <p class="post-meta">发布日期: 2026-01-31</p>
+                    </div>
+                    
+                    <div class="log-entry">
+                        <h3><a href="/_posts/2026-01-15-宇宙蛏子号发射/">又撞车了</a></h3>
+                        <p class="log-preview"></p>
+                        <p class="post-meta">发布日期: 2026-01-15</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="back-to-home">
+            <a href="/">[ 返回主页 ]</a>
+        </div>
+    </div>
+        <script type="application/json" id="post-dates">
+        ["2026-01-15","2026-01-31"]
+    </script>
+    <script src="/assets/js/calendar.js"></script>
+</body>
+</html>
